@@ -1,16 +1,16 @@
 const express = require('express')
-const router = express.Router()
+const User_router = express.Router()
 
 const User_Profile = require('../Models/User_Profile')
 //Get Route for all User Profiles
-router.get('/User_Profiles', (req, res) => {
+User_router.get('/User_Profiles', (req, res) => {
     User_Profile.query()
         .then(User_Profile => {
             res.json(User_Profile)
         })
 })
 //Get Route for a Specific User Profile.
-router.get('/User_Profiles/:id', (req, res) => {
+User_router.get('/User_Profiles/:id', (req, res) => {
     try{
         const id = parseInt(req.params.id)
     User_Profile.query()
@@ -30,7 +30,7 @@ router.get('/User_Profiles/:id', (req, res) => {
     
 })
 //Post Routes for Creating new User_Profile
-router.post('/User_Profiles', (req, res) => {
+User_router.post('/User_Profiles', (req, res) => {
     try{
         const {first_name,last_name,department,designation,tenant_id,image_url,city,country,bio,social_links,employee_id} = req.body
         User_Profile.query().insert({
@@ -56,7 +56,7 @@ router.post('/User_Profiles', (req, res) => {
 })
 
 //Put Route for Updating a student.
-router.put('/User_Profiles/:id', (req, res) => {
+User_router.put('/User_Profiles/:id', (req, res) => {
     let id = parseInt(req.params.id)
     const {first_name,last_name,department,designation,tenant_id,image_url,city,country,bio,social_links,employee_id} = req.body
     User_Profile.query()
@@ -79,7 +79,7 @@ router.put('/User_Profiles/:id', (req, res) => {
         })
 })
 //Route to Delete a specific User_ProfileId
-router.delete('/User_Profiles/:id', (req, res) => {
+User_router.delete('/User_Profiles/:id', (req, res) => {
     let id = parseInt(req.params.id)
     User_Profile.query().delete()
         .where('user_id', id)
@@ -91,5 +91,5 @@ router.delete('/User_Profiles/:id', (req, res) => {
 
 
 module.exports = {
-    router
+    User_router
 }
