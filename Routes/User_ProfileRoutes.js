@@ -11,45 +11,56 @@ User_router.get('/User_Profiles', (req, res) => {
 })
 //Get Route for a Specific User Profile.
 User_router.get('/:id', (req, res) => {
-    try{
+    try {
         const id = parseInt(req.params.id)
-    User_Profile.query()
-        .where('user_id', id)
-        .then(User_Profile => {
-            if (User_Profile.length === 0){
-                console.log("Arry is empty")
-                res.json("User not found.")
-            }
-            else{
-                res.json(User_Profile)
-            }
-        })
-    }catch(error){
+        User_Profile.query()
+            .where('user_id', id)
+            .then(User_Profile => {
+                if (User_Profile.length === 0) {
+                    console.log("Arry is empty")
+                    res.json("User not found.")
+                } else {
+                    res.json(User_Profile)
+                }
+            })
+    } catch (error) {
         res.send(error.message)
     }
-    
+
 })
 //Post Routes for Creating new User_Profile
 User_router.post('/', (req, res) => {
-    try{
-        const {first_name,last_name,department,designation,tenant_id,image_url,city,country,bio,social_links,employee_id} = req.body
+    try {
+        const {
+            first_name,
+            last_name,
+            department,
+            designation,
+            tenant_id,
+            image_url,
+            city,
+            country,
+            bio,
+            social_links,
+            employee_id
+        } = req.body
         User_Profile.query().insert({
-            'first_name':first_name,
-             'last_name':last_name,
-             'department':department,
-             'designation':designation,
-             'tenant_id':tenant_id,
-             'image_url':image_url,
-             'city':city,
-             'country':country,
-             'bio':bio,
-             'social_links':social_links,
-             'employee_id':employee_id
-        })
-        .then(User_Profile => {
+                'first_name': first_name,
+                'last_name': last_name,
+                'department': department,
+                'designation': designation,
+                'tenant_id': tenant_id,
+                'image_url': image_url,
+                'city': city,
+                'country': country,
+                'bio': bio,
+                'social_links': social_links,
+                'employee_id': employee_id
+            })
+            .then(User_Profile => {
                 res.json("User added successfully")
             })
-    }catch(error){
+    } catch (error) {
         res.send(error)
     }
 
@@ -58,20 +69,32 @@ User_router.post('/', (req, res) => {
 //Put Route for Updating a student.
 User_router.put('/:id', (req, res) => {
     let id = parseInt(req.params.id)
-    const {first_name,last_name,department,designation,tenant_id,image_url,city,country,bio,social_links,employee_id} = req.body
+    const {
+        first_name,
+        last_name,
+        department,
+        designation,
+        tenant_id,
+        image_url,
+        city,
+        country,
+        bio,
+        social_links,
+        employee_id
+    } = req.body
     User_Profile.query()
         .where('user_id', id).patch({
-            'first_name':first_name,
-            'last_name':last_name,
-            'department':department,
-            'designation':designation,
-            'tenant_id':tenant_id,
-            'image_url':image_url,
-            'city':city,
-            'country':country,
-            'bio':bio,
-            'social_links':social_links,
-            'employee_id':employee_id
+            'first_name': first_name,
+            'last_name': last_name,
+            'department': department,
+            'designation': designation,
+            'tenant_id': tenant_id,
+            'image_url': image_url,
+            'city': city,
+            'country': country,
+            'bio': bio,
+            'social_links': social_links,
+            'employee_id': employee_id
 
         })
         .then(user => {
