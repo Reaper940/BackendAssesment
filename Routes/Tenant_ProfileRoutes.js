@@ -5,7 +5,7 @@ const Tenant_Profile = require('../Models/Tenant_Profile')
 
 
 //Get Route for all Tenant_ Profiles
-Tenant_router.get('/Tenant_Profiles', (req, res) => {
+Tenant_router.get('/', (req, res) => {
     try{
         Tenant_Profile.query()
         .then(Tenant_Profile => {
@@ -17,7 +17,7 @@ Tenant_router.get('/Tenant_Profiles', (req, res) => {
   
 })
 //Get Route for a Specific Tenant Profile.
-Tenant_router.get('/Tenant_Profiles/:id', (req, res) => {
+Tenant_router.get('/:id', (req, res) => {
     
     try{
         const id = parseInt(req.params.id)
@@ -32,7 +32,7 @@ Tenant_router.get('/Tenant_Profiles/:id', (req, res) => {
    
 })
 //Post Route for Creating a new Tenant Profile.
-Tenant_router.post('/Tenant_Profiles', (req, res) => {
+Tenant_router.post('/', (req, res) => {
         const {tenant_name,Address,city,state,country,zip_code,phone,web_url}= req.body
         Tenant_Profile.query().insert({
                     'tenant_name':tenant_name,
@@ -50,7 +50,7 @@ Tenant_router.post('/Tenant_Profiles', (req, res) => {
         })
 })
 //Put Route for updating a specific Tenant Profile.
-Tenant_router.put('/Tenant_Profiles/:id', (req, res) => {
+Tenant_router.put('/:id', (req, res) => {
     
     try{
         const id = parseInt(req.params.id)
@@ -75,7 +75,7 @@ Tenant_router.put('/Tenant_Profiles/:id', (req, res) => {
    
 })
 //Delete Route for updating a specific Tenant Profile.
-Tenant_router.delete('/Tenant_Profiles/:id', (req, res) => {
+Tenant_router.delete('/:id', (req, res) => {
     
     try{
         const id = parseInt(req.params.id)
