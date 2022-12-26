@@ -10,7 +10,7 @@ User_router.get('/User_Profiles', (req, res) => {
         })
 })
 //Get Route for a Specific User Profile.
-User_router.get('/User_Profiles/:id', (req, res) => {
+User_router.get('/:id', (req, res) => {
     try{
         const id = parseInt(req.params.id)
     User_Profile.query()
@@ -30,7 +30,7 @@ User_router.get('/User_Profiles/:id', (req, res) => {
     
 })
 //Post Routes for Creating new User_Profile
-User_router.post('/User_Profiles', (req, res) => {
+User_router.post('/', (req, res) => {
     try{
         const {first_name,last_name,department,designation,tenant_id,image_url,city,country,bio,social_links,employee_id} = req.body
         User_Profile.query().insert({
@@ -56,7 +56,7 @@ User_router.post('/User_Profiles', (req, res) => {
 })
 
 //Put Route for Updating a student.
-User_router.put('/User_Profiles/:id', (req, res) => {
+User_router.put('/:id', (req, res) => {
     let id = parseInt(req.params.id)
     const {first_name,last_name,department,designation,tenant_id,image_url,city,country,bio,social_links,employee_id} = req.body
     User_Profile.query()
@@ -79,7 +79,7 @@ User_router.put('/User_Profiles/:id', (req, res) => {
         })
 })
 //Route to Delete a specific User_ProfileId
-User_router.delete('/User_Profiles/:id', (req, res) => {
+User_router.delete('/:id', (req, res) => {
     let id = parseInt(req.params.id)
     User_Profile.query().delete()
         .where('user_id', id)
