@@ -9,7 +9,7 @@ services:
     - 5432:5432
     restart: always
     volumes:
-    - ./backend/db_data/:/var/lib/postgresql/data
+      - ./backend/db_data/:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: $POSTGRES_USERNAME
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD

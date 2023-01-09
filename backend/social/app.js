@@ -13,11 +13,15 @@ app.use(express.json());
 
 // app.use(databaseConfig.initializeDB());
 
-app.use('/', async (req, res) => {
+app.get('/', async (req, res) => {
 
 	res.status(200).json({ message: `App is running on port. ${process.env.PORT || 4000}` });
 
 });
+
+app.use('/', require('./Routes/User_ProfileRoutes').router)
+app.use('/', require('./Routes/Tenant_ProfileRoutes').Tenant_router)
+
 
 app.listen(process.env.PORT || 4000, async () => {
 	

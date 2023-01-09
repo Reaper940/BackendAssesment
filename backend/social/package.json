@@ -6,6 +6,7 @@
 	"scripts": {
 		"start": "node app.js",
 		"migrate": "knex migrate:latest",
+		"rollback": "knex migrate:rollback",
 		"makemigrate": "knex --knexfile=./database/knexfile.js migrate:make",
 		"makeseed": "knex --knexfile=./database/knexfile.js seed:make",
 		"seed": "knex seed:run",
@@ -18,7 +19,7 @@
 		"faker": "^5.5.3",
 		"jsonwebtoken": "^8.5.1",
 		"kafkajs": "^1.15.0",
-		"knex": "^0.95.6",
+		"knex": "^1.0.7",
 		"node-rdkafka": "^2.12.0",
 		"objection": "^2.2.15",
 		"pg": "^8.6.0"
