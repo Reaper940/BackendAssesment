@@ -46,7 +46,7 @@ Tenant_router.post('/Tenant_Profiles', (req, res) => {
                     'web_url':web_url
 
         }).then(Tenant_Profile =>{
-            res.json("User added successfully")
+            res.json("Tenant added successfully")
         })
     }catch(error){
         res.send(error)

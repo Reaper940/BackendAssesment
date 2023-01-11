@@ -27,8 +27,8 @@ const initConsumer = async () => {
 
 		await consumer.run({
 			eachMessage: async ({ message }) => {
-
 				processMessage(JSON.parse(message.value.toString()));
+				console.log("Kafka Message events")
 
 			}
 		});
