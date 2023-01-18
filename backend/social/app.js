@@ -19,6 +19,10 @@ app.get('/', async (req, res) => {
 
 });
 
+
+// import route files as constants and use those here instead of using require keyword inside functions
+// code should be well commented on business logic, parameters, datatypes and return types.
+
 app.use('/', require('./Routes/User_ProfileRoutes').router)
 app.use('/', require('./Routes/Tenant_ProfileRoutes').Tenant_router)
 

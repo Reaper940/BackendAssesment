@@ -3,6 +3,10 @@ const Tenant_router = express.Router()
 
 const Tenant_Profile = require('../Models/Tenant_Profile')
 
+// Ideally your route file should be calling a set of function instead of database calls. You can introduce a controller that should contain the 
+// business logic and a set of utility files that separately can deal with different database calls such as a utility file that deals with only
+// Tenant database table.
+
 
 //Get Route for all Tenant_ Profiles
 Tenant_router.get('/Tenant_Profiles', (req, res) => {
