@@ -21,9 +21,10 @@ exports.seed = async function(knex) {
         zip_code:'54000',
         phone:'03234233456',
         web_url:'www.osambutt.com'}
-  ]);
+  ]);//.onconflict('id').ignore();
 
   
 };
 
 
+  

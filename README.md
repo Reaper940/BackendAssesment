@@ -17,6 +17,7 @@ The aim of this assessment is to evaluate your backend skills using NodeJS and b
 - ### Postgres
 - ### Adminer
 - ### Kafka
+		// "knex": "^0.95.6",
 
 
 ## **Assessment**:

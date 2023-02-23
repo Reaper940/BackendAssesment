@@ -28,5 +28,5 @@ exports.seed = async function(knex) {
          bio:'IAmFaizan',
          social_links:'www.faizanqadri.com',
          employee_id:124 }
-  ]);
+  ]);//.onConflict('id').ignore();
 };

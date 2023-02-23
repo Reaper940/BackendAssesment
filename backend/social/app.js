@@ -5,7 +5,8 @@ const { initProducer } = require('./utilities/producer');
 // const { connectProducer, connectAdmin } = require('./utilities/producer');
 // const KeyMaster = require('./utilities/KeyMaster');
 // const databaseConfig = require('./database/DatabaseConfig');
-
+const {User_router} = require('./Routes/User_ProfileRoutes')
+const {Tenant_router} = require('./Routes/Tenant_ProfileRoutes')
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -19,8 +20,8 @@ app.get('/', async (req, res) => {
 
 });
 
-app.use('/', require('./Routes/User_ProfileRoutes').router)
-app.use('/', require('./Routes/Tenant_ProfileRoutes').Tenant_router)
+app.use('/User_Profiles', User_router)//require('./Routes/User_ProfileRoutes').router)
+app.use('/Tenant_Profiles', Tenant_router )//require('./Routes/Tenant_ProfileRoutes').Tenant_router)
 
 
 app.listen(process.env.PORT || 4000, async () => {
