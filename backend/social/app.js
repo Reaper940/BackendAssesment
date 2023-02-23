@@ -19,9 +19,10 @@ app.get('/', async (req, res) => {
 	res.status(200).json({ message: `App is running on port. ${process.env.PORT || 4000}` });
 
 });
-
 app.use('/User_Profiles', User_router)//require('./Routes/User_ProfileRoutes').router)
 app.use('/Tenant_Profiles', Tenant_router )//require('./Routes/Tenant_ProfileRoutes').Tenant_router)
+
+
 
 
 app.listen(process.env.PORT || 4000, async () => {

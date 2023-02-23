@@ -3,6 +3,10 @@ const knex = require('../db/KnexConnection')
 
 Model.knex(knex)
 
+// Use Objection models to validate data sources
+// currently you are using no validation at this step.
+// make sure you write what datatype should be accepted by each model per field.
+
 class Tenant extends Model {
   static get tableName() {
     return 'Tenant_Profile';
